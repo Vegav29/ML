@@ -81,6 +81,7 @@ Y_test
 logreg = LogisticRegression(max_iter=1000, random_state=42)
 logreg.fit(X_train, Y_train)
 Y_pred = logreg.predict(X_test)
+#evaluation of logistic regressiom=n
 accuracy=accuracy_score(Y_pred, Y_pred)
 conf_matrix=confusion_matrix(Y_test, Y_pred)
 class_report=classification_report(Y_test, Y_pred)
@@ -112,3 +113,11 @@ plt.ylabel("True Label")
 plt.title("Confusion Matrix Heatmap")
 plt.show()
 #KNN
+from sklearn.neighbors import KNeighborsClassifier
+k = 3
+knn = KNeighborsClassifier(n_neighbors=k)
+knn.fit(X_train, Y_train)
+y_pred_knn = knn.predict(X_test)
+accuracy = accuracy_score(Y_test, y_pred_knn)
+print(f'Accuracy: {accuracy * 100:.2f}%')
+classification_report(Y_test, y_pred_knn)
