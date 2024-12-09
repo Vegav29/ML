@@ -121,3 +121,44 @@ y_pred_knn = knn.predict(X_test)
 accuracy = accuracy_score(Y_test, y_pred_knn)
 print(f'Accuracy: {accuracy * 100:.2f}%')
 classification_report(Y_test, y_pred_knn)
+# Random Forest
+from sklearn.ensemble import RandomForestClassifier
+
+rf = RandomForestClassifier(n_estimators=100, random_state=42)
+rf.fit(X_train, Y_train)
+Y_pred_rf = rf.predict(X_test)
+rf_accuracy = accuracy_score(Y_test, Y_pred_rf)
+rf_class_report = classification_report(Y_test, Y_pred_rf)
+print("\nRandom Forest Report:")
+print(rf_class_report)
+print(f"Random Forest Accuracy: {rf_accuracy * 100:.2f}%")
+
+
+# Comparison of Model Performances
+results = {
+    "Logistic Regression": accuracy_score(Y_test, Y_pred) * 100,
+    "SVC": accuracy_score(Y_test, Y_pred2) * 100,
+    "K-Nearest Neighbors": accuracy * 100,
+    "Random Forest": rf_accuracy * 100,
+   
+}
+
+# Display results
+print("\nModel Performance Comparison:")
+for model, acc in results.items():
+    print(f"{model}: {acc:.2f}%")
+
+# Plotting model performance
+plt.figure(figsize=(10, 6))
+plt.bar(results.keys(), results.values(), color='skyblue')
+plt.title("Model Performance Comparison")
+plt.xlabel("Model")
+plt.ylabel("Accuracy (%)")
+plt.xticks(rotation=45)
+plt.ylim(0, 100)
+plt.tight_layout()
+plt.show()
+
+# Final Conclusion
+best_model = max(results, key=results.get)
+print(f"The best-performing model is: {best_model} with an accuracy of {results[best_model]:.2f}%")
