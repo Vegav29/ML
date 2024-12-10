@@ -27,6 +27,10 @@ Numerical Data Visualization: Histograms are plotted for numerical columns:
 Target Variable Proportions: A pie chart is used to visualize the proportion of loan approvals vs. rejections.
 ![Figure_6](https://github.com/user-attachments/assets/55ae3028-df86-46c9-ac2c-7047aca1769a)
 
+#final Model Performance Comparison: classification algorithms such as Logistic Regression, Support Vector Classifier (SVC), K-Nearest Neighbors (KNN), and Random Forest 
+![final](https://github.com/user-attachments/assets/88b19d59-6a1b-4a87-9d7d-e4861aff87fa)
+
+
 ## Libraries Used
 
 This project uses the following libraries:
